@@ -1,0 +1,71 @@
+<!-- bobbychicano -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title></title>
+  </head>
+  <body>
+    <script type="text/javascript">
+
+
+      function computerPlay() {
+
+          let choice = Math.random();
+
+          if (0 < choice < 0.33) {
+            let choice = "rock";
+            return choice
+          }
+          else if (0.34 < computerPlay < 0.66) {
+            let choice = "paper";
+            return choice
+          }
+          else {
+            let choice = "scissors";
+            return choice
+          }
+      }
+
+
+      function playerSelection() {
+        let question = prompt("Do you choose rock, paper, or scissors?");
+        question = question.toLowerCase();
+
+        if (question == "rock") {
+          return question
+
+        } else if (question == "paper") {
+          return question
+
+        } else if (question == "scissors") {
+          return question
+
+        } else {
+          alert("Not a valid choice");
+        }
+      }
+
+
+    </script>
+
+    <!-- (Unused script/Alternate/Variations of functional script)
+
+          let question = "Rock, Paper, Or Scissors?";
+
+          function yourChoice() {
+          return prompt(question);
+          }
+
+          function finalAnswer() {
+            if (yourChoice() == "rock" || yourChoice() == "paper" || yourChoice() == "scissors") {
+              return yourChoice();
+            } else {
+              alert("Not a valid choice");
+            }
+          }
+    -->
+
+  </body>
+</html>
