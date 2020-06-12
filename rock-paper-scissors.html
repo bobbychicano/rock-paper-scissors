@@ -23,6 +23,7 @@
           }
       }
 
+      const computerSelection = computerPlay();
 
       function playerSelection() {
         let question = prompt("Do you choose rock, paper, or scissors?");
@@ -41,6 +42,31 @@
           alert("Not a valid choice");
         }
       }
+
+      const playerSelection = playerSelection();
+
+      function playRound(playerSelection, computerSelection) {
+
+        playerSelection = playerSelection.toLowerCase();
+        computerSelection = computerSelection.toLowerCase();
+
+          if (playerSelection == computerSelection) {
+          return "Tie! Next Round!"
+        } else if (playerSelection == "rock" && computerSelection == "paper") {
+          return "You lose. Paper covers Rock."
+        } else if (playerSelection == "paper" && computerSelection == "scissors") {
+          return "You lose. Scissors cut Paper."
+        } else if (playerSelection == "scissors" && computerSelection == "rock") {
+          return "You lose. Rock beats Scissors."
+        } else if (playerSelection == "rock" && computerSelection == "scissors") {
+          return "You win! Rock beats Scissors."
+        } else if (playerSelection == "paper" && computerSelection == "rock") {
+          return "You win! Paper covers Rock."
+        } else if (playerSelection == "scissors" && computerSelection == "paper") {
+          return "You win! Scissors cut Paper."
+        }
+      }
+
 
       const game = function() {
         let playerScore = 0;
