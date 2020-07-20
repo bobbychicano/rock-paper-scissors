@@ -1,24 +1,46 @@
-let boulder = document.querySelector('.rock');
-
-boulder.addEventListener('click', () => {
-  document.querySelector('.person').textContent = 'Player Choice: Boulder';
-});
-
-let tarp = document.querySelector('.paper');
-
-tarp.addEventListener('click', () => {
-  document.querySelector('.person').textContent = 'Player Choice: Tarp';
-});
-
-let machete = document.querySelector('.scissors');
-
-machete.addEventListener('click', () => {
-  document.querySelector('.person').textContent = 'Player Choice: Machete';
-});
-
-
 let playerScore = 0;
 let computerScore = 0;
+let score = document.querySelector('.score h2');
+
+let playerSelection = "";
+let computerSelection = computerPlay();
+
+const boulder = document.querySelector('.rock');
+const tarp = document.querySelector('.paper');
+const machete = document.querySelector('.scissors');
+
+
+boulder.addEventListener('click', () => {
+  document.querySelector('.person h2').textContent = 'Player Choice: Boulder';
+
+  let playerSelection = "rock";
+  let computerSelection = computerPlay();
+  game();
+  console.log(playerSelection, computerSelection);
+});
+
+
+
+tarp.addEventListener('click', () => {
+  document.querySelector('.person h2').textContent = 'Player Choice: Tarp';
+
+  let playerSelection = "paper";
+  let computerSelection = computerPlay();
+  game();
+  console.log(playerSelection, computerSelection);
+});
+
+
+
+machete.addEventListener('click', () => {
+  document.querySelector('.person h2').textContent = 'Player Choice: Machete';
+
+  let playerSelection = "scissors";
+  let computerSelection = computerPlay();
+  game();
+  console.log(playerSelection, computerSelection);
+});
+
 
 function computerPlay() {
 
@@ -27,26 +49,14 @@ function computerPlay() {
     if (choice < 0.33) {
       return "rock"
     }
-    else if (0.34 < choice < 0.66) {
+    else if (choice < 0.66) {
       return "paper"
     }
-    else {
+    else if (choice < 0.99) {
       return "scissors"
     }
 }
 
-function playerChoice() {
-
-  let response = prompt("Do you choose rock, paper, or scissors?");
-
-  response = response.toLowerCase();
-
-  if (response == "rock" || response == "paper" || response == "scissors") {
-    return response
-  } else {
-    alert("Not a valid choice");
-  }
-}
 
 function playRound(playerSelection, computerSelection) {
 
@@ -75,18 +85,10 @@ function playRound(playerSelection, computerSelection) {
 
 function game() {
 
-  playerChoice();
-  computerPlay();
-
-  let playerSelection = playerChoice();
-  let computerSelection = computerPlay();
-
-  console.log(playerSelection);
-  console.log(computerSelection);
+  playRound(playerSelection, computerSelection);
 
   let result = playRound(playerSelection, computerSelection);
-  console.log(result);
 
   let score = "Player Score: " + playerScore + " CPU Score: " + computerScore;
-  console.log(score);
+
 }
