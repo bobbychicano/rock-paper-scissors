@@ -1,0 +1,104 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 100%;
+  font-family: 'Piedra', cursive;
+}
+
+body {
+  background-color: #B2DFDB;
+}
+
+.page {
+  width: 90%;
+  height: 100vh;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #E0F2F1;
+  padding: 0 1rem;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+h3 {
+  font-family: 'Piedra', cursive;
+  font-size: 3rem;
+}
+
+.prompt {
+  text-align: center;
+  font-size: 1.3rem;
+  margin: 1.5rem 0;
+}
+
+.choice {
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+  margin: 0 auto;
+}
+
+.rock, .paper, .scissors {
+  width: 20%;
+  padding: 10px;
+  text-decoration: none;
+  font-size: 1rem;
+  border-radius: 4px;
+  background-color: white;
+  color: #1B5E20;
+  font-family: 'Piedra', cursive;
+}
+
+.choice button:hover {
+  cursor: pointer;
+  background-color: #81C784;
+  color: white;
+  transition-duration: 0.4s;
+}
+
+.choice button:active {
+  cursor: pointer;
+  background-color: #43A047;
+  color: white;
+}
+
+.choice button:focus {
+  outline: none;
+}
+
+.round {
+  display: flex;
+  justify-content: space-between;
+}
+
+.player-choice, .computer-choice {
+  border: 2px dotted gray;
+  width: 25%
+}
+
+.players {
+  display: flex;
+  justify-content: space-between;
+}
+
+.person, .computer {
+  width: 25%;
+  text-align: center;
+  text-align: left;
+}
+
+.score {
+  border: 2px solid teal;
+  text-align: center;
+  margin-bottom: 10px;
+}

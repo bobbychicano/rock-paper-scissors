@@ -2,85 +2,59 @@
 <html lang="en">
   <head>
     <meta charset="utf-8"/>
-    <title></title>
+    <title>Boulder, Tarp, Machete</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Piedra&display=swap" rel="stylesheet">
   </head>
   <body>
-    <script type="text/javascript">
+    <div class="page">
+      <header>
+        <h3>Boulder, Tarp, Machete</h3>
+      </header>
 
-      let playerScore = 0;
-      let computerScore = 0;
+      <div class="choose">
 
-      function computerPlay() {
+        <div class="prompt">
+          <h4>Choose Your Weapon</h4>
+        </div>
 
-          let choice = Math.random();
+        <div class="choice">
+          <button class="rock">BOULDER
+          </button>
+          <button class="paper">TARP
+          </button>
+          <button class="scissors">MACHETE
+          </button>
+        </div>
 
-          if (choice < 0.33) {
-            return "rock"
-          }
-          else if (0.34 < choice < 0.66) {
-            return "paper"
-          }
-          else {
-            return "scissors"
-          }
-      }
+      </div>
 
-      function playerChoice() {
+      <div class="round">
 
-        let response = prompt("Do you choose rock, paper, or scissors?");
+        <div class="player-choice">IMAGE
+          <img src="" alt="">
+        </div>
+        <div class="vs">
+          <h3>VS</h3>
+        </div>
+        <div class="computer-choice">IMAGE
+          <img src="" alt="">
+        </div>
 
-        response = response.toLowerCase();
+      </div>
 
-        if (response == "rock" || response == "paper" || response == "scissors") {
-          return response
-        } else {
-          alert("Not a valid choice");
-        }
-      }
+      <div class="players">
 
-      function playRound(playerSelection, computerSelection) {
+        <div class="person">Player Choice:
+        </div>
+        <div class="computer"> Computer Choice:
+        </div>
 
-          if (playerSelection === computerSelection) {
-          return "Tie! Next Round!"
-        } else if (playerSelection == "rock" && computerSelection == "paper") {
-          computerScore++;
-          return "You lose."
-        } else if (playerSelection == "paper" && computerSelection == "scissors") {
-          computerScore++;
-          return "You lose."
-        } else if (playerSelection == "scissors" && computerSelection == "rock") {
-          computerScore++;
-          return "You lose."
-        } else if (playerSelection == "rock" && computerSelection == "scissors") {
-          playerScore++;
-          return "You win!"
-        } else if (playerSelection == "paper" && computerSelection == "rock") {
-          playerScore++;
-          return "You win!"
-        } else if (playerSelection == "scissors" && computerSelection == "paper") {
-          playerScore++;
-          return "You win!"
-        }
-      }
+      </div>
 
-      function game() {
+      <div class="score">Score:</div>
 
-        playerChoice();
-        computerPlay();
-
-        let playerSelection = playerChoice();
-        let computerSelection = computerPlay();
-
-        console.log(playerSelection);
-        console.log(computerSelection);
-
-        let result = playRound(playerSelection, computerSelection);
-        console.log(result);
-
-        let score = "Player Score: " + playerScore + " CPU Score: " + computerScore;
-        console.log(score);
-      }
-
-    </script>
+    </div>
+    <script type="text/javascript"></script>
   </body>
 </html>
