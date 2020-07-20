@@ -1,3 +1,22 @@
+let boulder = document.querySelector('.rock');
+
+boulder.addEventListener('click', () => {
+  document.querySelector('.person').textContent = 'Player Choice: Boulder';
+});
+
+let tarp = document.querySelector('.paper');
+
+tarp.addEventListener('click', () => {
+  document.querySelector('.person').textContent = 'Player Choice: Tarp';
+});
+
+let machete = document.querySelector('.scissors');
+
+machete.addEventListener('click', () => {
+  document.querySelector('.person').textContent = 'Player Choice: Machete';
+});
+
+
 let playerScore = 0;
 let computerScore = 0;
 
