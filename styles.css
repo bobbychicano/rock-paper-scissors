@@ -27,7 +27,7 @@ header {
   display: flex;
   justify-content: space-between;
   margin-top: 10px;
-  text-shadow: 0 0 2px yellow;
+  text-shadow: 0 0 3px #83f52c;
 }
 
 h3 {
@@ -85,7 +85,6 @@ h3 {
 }
 
 .player-choice, .computer-choice {
-  border: 2px dotted gray;
   width: 25%
 }
 
@@ -100,7 +99,12 @@ h3 {
   text-align: left;
 }
 
+.winner {
+  text-align: center;
+}
+
 .score {
   text-align: center;
   margin-bottom: 10px;
+  padding-bottom: 3rem;
 }

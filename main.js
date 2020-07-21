@@ -1,6 +1,7 @@
+// Declare all global variables
+
 let playerScore = 0;
 let computerScore = 0;
-let score = document.querySelector('.score h2');
 
 let playerSelection = "";
 let computerSelection = computerPlay();
@@ -8,15 +9,49 @@ let computerSelection = computerPlay();
 const boulder = document.querySelector('.rock');
 const tarp = document.querySelector('.paper');
 const machete = document.querySelector('.scissors');
+const score = document.querySelector('.score h2');
+const playerImage = document.querySelector('.player-choice');
+const computerImage = document.querySelector('.computer-choice');
 
+// Button event listeners and corresponding game functions
 
 boulder.addEventListener('click', () => {
   document.querySelector('.person h2').textContent = 'Player Choice: Boulder';
 
-  let playerSelection = "rock";
-  let computerSelection = computerPlay();
+  playerSelection = "Boulder";
+  computerSelection = computerPlay();
+
+  document.querySelector('.computer h2').textContent = `Computer Choice: ${computerSelection}`;
+
+  // update the vs. images
+
+  playerImage.src = '/images/Boulder.png';
+  computerImage.src = `./images/${computerSelection}.png`;
+
+  // Run the game function
+
   game();
-  console.log(playerSelection, computerSelection);
+
+  let tally = "Score: Player Score - " + playerScore + " CPU Score - " + computerScore;
+  score.textContent = tally;
+
+
+  if (playerScore == 6) {
+    alert("You beat the computer!");
+  } else if (computerScore == 6) {
+    alert("The computer wins :(");
+  };
+
+  // if the player score or the computer score reach 5, end the game.  Then have a button to restart the game and play again.
+  // How cam I reset the score?
+  // How to make it so that game only runs up to 5
+  // can i reset to an original dom state?
+
+  // I cant make the score zero inside this function because the playerScore and computerScore are global variables.
+
+  // how do I set a limit to increments?
+
+
 });
 
 
@@ -24,10 +59,10 @@ boulder.addEventListener('click', () => {
 tarp.addEventListener('click', () => {
   document.querySelector('.person h2').textContent = 'Player Choice: Tarp';
 
-  let playerSelection = "paper";
-  let computerSelection = computerPlay();
+  playerSelection = "Tarp";
+  computerSelection = computerPlay();
   game();
-  console.log(playerSelection, computerSelection);
+
 });
 
 
@@ -35,60 +70,69 @@ tarp.addEventListener('click', () => {
 machete.addEventListener('click', () => {
   document.querySelector('.person h2').textContent = 'Player Choice: Machete';
 
-  let playerSelection = "scissors";
-  let computerSelection = computerPlay();
+  playerSelection = "Machete";
+  computerSelection = computerPlay();
   game();
-  console.log(playerSelection, computerSelection);
+
 });
 
+// Random Computer choice function
 
 function computerPlay() {
 
     let choice = Math.random();
 
     if (choice < 0.33) {
-      return "rock"
+      return "Boulder"
     }
     else if (choice < 0.66) {
-      return "paper"
+      return "Tarp"
     }
     else if (choice < 0.99) {
-      return "scissors"
+      return "Machete"
     }
 }
 
+// Function to compare choices and decide winner
 
 function playRound(playerSelection, computerSelection) {
 
+  const winner = document.querySelector('.winner h2');
+
     if (playerSelection === computerSelection) {
-    return "Tie! Next Round!"
-  } else if (playerSelection == "rock" && computerSelection == "paper") {
+      winner.textContent = 'It is a tie. Play the next round.';
+      return;
+  } else if (playerSelection == "Boulder" && computerSelection == "Tarp") {
     computerScore++;
-    return "You lose."
-  } else if (playerSelection == "paper" && computerSelection == "scissors") {
+    winner.textContent = "You lose. Tarp envelops Boulder.";
+    return;
+  } else if (playerSelection == "Tarp" && computerSelection == "Machete") {
     computerScore++;
-    return "You lose."
-  } else if (playerSelection == "scissors" && computerSelection == "rock") {
+    winner.textContent = "You lose. Machete slices Tarp.";
+    return;
+  } else if (playerSelection == "Machete" && computerSelection == "Boulder") {
     computerScore++;
-    return "You lose."
-  } else if (playerSelection == "rock" && computerSelection == "scissors") {
+    winner.textContent = "You lose. Boulder crushes Machete.";
+    return;
+  } else if (playerSelection == "Boulder" && computerSelection == "Machete") {
     playerScore++;
-    return "You win!"
-  } else if (playerSelection == "paper" && computerSelection == "rock") {
+    winner.textContent = "You win! Boulder crushes Machete.";
+    return;
+  } else if (playerSelection == "Tarp" && computerSelection == "Boulder") {
     playerScore++;
-    return "You win!"
-  } else if (playerSelection == "scissors" && computerSelection == "paper") {
+    winner.textContent = "You win! Tarp envelops Boulder.";
+    return;
+  } else if (playerSelection == "Machete" && computerSelection == "Tarp") {
     playerScore++;
-    return "You win!"
+    winner.textContent = "You win. Machete slices Tarp.";
+    return;
   }
 }
+
+// Function to run the game
 
 function game() {
 
   playRound(playerSelection, computerSelection);
-
-  let result = playRound(playerSelection, computerSelection);
-
-  let score = "Player Score: " + playerScore + " CPU Score: " + computerScore;
 
 }
