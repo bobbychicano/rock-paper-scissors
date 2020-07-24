@@ -125,6 +125,12 @@ function game() {
 
 function score() {
   tally.textContent = "Score: Player - " + playerScore + " CPU - " + computerScore;
+
+  if (playerScore == 5) {
+    winner.textContent = 'You win! You beat the computer!';
+  } else if (computerScore == 5) {
+    winner.textContent = 'You lose. The computer won :(';
+  }
 }
 
 function reset() {
