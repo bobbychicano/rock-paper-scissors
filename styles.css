@@ -48,7 +48,9 @@ h3 {
   margin: 0 auto;
 }
 
-.rock, .paper, .scissors {
+.rock,
+.paper,
+.scissors {
   width: 20%;
   padding: 10px;
   text-decoration: none;
@@ -61,7 +63,9 @@ h3 {
   cursor: pointer;
 }
 
-.rock:hover, .paper:hover, .scissors:hover {
+.rock:hover,
+.paper:hover,
+.scissors:hover {
   background-color: #81C784;
   color: white;
   transition-duration: 0.4s;
@@ -82,10 +86,32 @@ h3 {
 .round {
   display: flex;
   justify-content: space-between;
+  height: 30vh;
+  width: 100%;
+  flex-wrap: nowrap;
 }
 
-.player-choice, .computer-choice {
-  width: 25%
+/*
+.round img {
+  height: 100%;
+}
+*/
+
+.player-image,
+.computer-image,
+.vs {
+  text-align: center;
+  width: 30%;
+  flex-shrink: 0;
+}
+
+img {
+  max-height: 100%;
+  max-width: 100%;
+}
+
+.game-stats {
+  border: 2px solid black;
 }
 
 .players {
@@ -93,18 +119,19 @@ h3 {
   justify-content: space-between;
 }
 
-.person, .computer {
+.person,
+.computer {
   width: 25%;
-  text-align: center;
   text-align: left;
 }
 
 .winner {
   text-align: center;
+  height: 3.5rem;
 }
 
 .score {
   text-align: center;
   margin-bottom: 10px;
-  padding-bottom: 3rem;
+  padding-bottom: 1rem;
 }

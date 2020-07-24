@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Piedra&display=swap" rel="stylesheet">
   </head>
   <body>
-    <div class="page">
+    <section class="page">
       <header>
         <h3>Boulder, Tarp, Machete</h3>
       </header>
@@ -31,38 +31,40 @@
 
       <div class="round">
 
-        <div>
-          <img class="player-choice" src="" alt="A boulder, a tarp, or a machete">
+        <div class="player-image">
+          <img class="player-choice" src="images/Boulder.png" alt="A boulder, a tarp, or a machete">
         </div>
         <div class="vs">
           <h3>VS</h3>
         </div>
-        <div>
-          <img class="computer-choice" src="" alt="A boulder, a tarp, or a machete">
+        <div class="computer-image">
+          <img class="computer-choice" src="images/Boulder.png" alt="A boulder, a tarp, or a machete">
         </div>
 
       </div>
 
-      <div class="players">
+      <div class="game-stats">
+        <div class="players">
 
-        <div class="person">
-          <h2>Player Choice:</h2>
+          <div class="person">
+            <h2>Player Choice:</h2>
+          </div>
+          <div class="computer">
+            <h2>Computer Choice:</h2>
+          </div>
+
         </div>
-        <div class="computer">
-          <h2>Computer Choice:</h2>
+
+        <div class="winner">
+          <h2>...</h2>
         </div>
 
+        <div class="score">
+          <h2>Score: Player - 0 CPU - 0</h2>
+        </div>
       </div>
 
-      <div class="winner">
-        <h2></h2>
-      </div>
-
-      <div class="score">
-        <h2>Score:</h2>
-      </div>
-
-    </div>
+    </section>
     <script src="main.js" type="text/javascript"></script>
   </body>
 </html>

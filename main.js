@@ -32,7 +32,7 @@ boulder.addEventListener('click', () => {
 
   game();
 
-  let tally = "Score: Player Score - " + playerScore + " CPU Score - " + computerScore;
+  let tally = "Score: Player - " + playerScore + " CPU - " + computerScore;
   score.textContent = tally;
 
 
@@ -41,6 +41,9 @@ boulder.addEventListener('click', () => {
   } else if (computerScore == 6) {
     alert("The computer wins :(");
   };
+
+
+  //run the score() function in order to return the score after each button click.
 
   // if the player score or the computer score reach 5, end the game.  Then have a button to restart the game and play again.
   // How cam I reset the score?
@@ -132,7 +135,11 @@ function playRound(playerSelection, computerSelection) {
 // Function to run the game
 
 function game() {
-
   playRound(playerSelection, computerSelection);
+}
+
+// Global function to compare and keep track of Score
+
+function score() {
 
 }
