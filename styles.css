@@ -125,6 +125,15 @@ img {
   text-align: left;
 }
 
+.person {
+  padding-left: 10px;
+  padding-top: 10px;
+}
+
+.computer {
+  padding-top: 10px;
+}
+
 .winner {
   text-align: center;
   height: 3.5rem;

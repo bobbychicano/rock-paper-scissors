@@ -9,19 +9,22 @@ let computerSelection = computerPlay();
 const boulder = document.querySelector('.rock');
 const tarp = document.querySelector('.paper');
 const machete = document.querySelector('.scissors');
-const score = document.querySelector('.score h2');
+const tally = document.querySelector('.score h2');
 const playerImage = document.querySelector('.player-choice');
 const computerImage = document.querySelector('.computer-choice');
+const playerChoice = document.querySelector('.person h2');
+const computerChoice = document.querySelector('.computer h2');
+const winner = document.querySelector('.winner h2');
 
 // Button event listeners and corresponding game functions
 
 boulder.addEventListener('click', () => {
-  document.querySelector('.person h2').textContent = 'Player Choice: Boulder';
+  playerChoice.textContent = 'Player Choice: Boulder';
 
   playerSelection = "Boulder";
   computerSelection = computerPlay();
 
-  document.querySelector('.computer h2').textContent = `Computer Choice: ${computerSelection}`;
+  computerChoice.textContent = `Computer Choice: ${computerSelection}`;
 
   // update the vs. images
 
@@ -31,29 +34,11 @@ boulder.addEventListener('click', () => {
   // Run the game function
 
   game();
+  score();
 
-  let tally = "Score: Player - " + playerScore + " CPU - " + computerScore;
-  score.textContent = tally;
-
-
-  if (playerScore == 6) {
-    alert("You beat the computer!");
-  } else if (computerScore == 6) {
-    alert("The computer wins :(");
-  };
-
-
-  //run the score() function in order to return the score after each button click.
-
-  // if the player score or the computer score reach 5, end the game.  Then have a button to restart the game and play again.
-  // How cam I reset the score?
-  // How to make it so that game only runs up to 5
-  // can i reset to an original dom state?
-
-  // I cant make the score zero inside this function because the playerScore and computerScore are global variables.
-
-  // how do I set a limit to increments?
-
+  if (playerScore == 6 || computerScore == 6) {
+    reset();
+  }
 
 });
 
@@ -100,8 +85,6 @@ function computerPlay() {
 
 function playRound(playerSelection, computerSelection) {
 
-  const winner = document.querySelector('.winner h2');
-
     if (playerSelection === computerSelection) {
       winner.textContent = 'It is a tie. Play the next round.';
       return;
@@ -141,5 +124,18 @@ function game() {
 // Global function to compare and keep track of Score
 
 function score() {
+  tally.textContent = "Score: Player - " + playerScore + " CPU - " + computerScore;
+}
 
+function reset() {
+  playerScore = 0;
+  computerScore = 0;
+
+  score();
+
+  playerChoice.textContent = 'Player Choice: ';
+  computerChoice.textContent = 'Computer Choice: ';
+  winner.textContent = '...';
+
+  computerImage.src = `./images/Boulder.png`;
 }
