@@ -15,6 +15,7 @@ const computerImage = document.querySelector('.computer-choice');
 const playerChoice = document.querySelector('.person h2');
 const computerChoice = document.querySelector('.computer h2');
 const winner = document.querySelector('.winner h2');
+const choice = document.querySelector('.choice');
 
 // Button event listeners and corresponding game functions
 
@@ -26,41 +27,53 @@ boulder.addEventListener('click', () => {
 
   computerChoice.textContent = `Computer Choice: ${computerSelection}`;
 
-  // update the vs. images
-
   playerImage.src = '/images/Boulder.png';
-  computerImage.src = `./images/${computerSelection}.png`;
-
-  // Run the game function
+  computerImage.src = `/images/${computerSelection}.png`;
 
   game();
   score();
 
-  if (playerScore == 6 || computerScore == 6) {
-    reset();
+});
+
+
+tarp.addEventListener('click', () => {
+  playerChoice.textContent = 'Player Choice: Tarp';
+
+  playerSelection = "Tarp";
+  computerSelection = computerPlay();
+
+  computerChoice.textContent = `Computer Choice: ${computerSelection}`;
+
+  playerImage.src = '/images/Tarp.png';
+  computerImage.src = `/images/${computerSelection}.png`;
+
+  game();
+  score();
+
+  if (playerScore == 5 || computerScore == 5) {
+    tarp.addEventListener('click', reset());
   }
 
 });
 
 
-
-tarp.addEventListener('click', () => {
-  document.querySelector('.person h2').textContent = 'Player Choice: Tarp';
-
-  playerSelection = "Tarp";
-  computerSelection = computerPlay();
-  game();
-
-});
-
-
-
 machete.addEventListener('click', () => {
-  document.querySelector('.person h2').textContent = 'Player Choice: Machete';
+  playerChoice.textContent = 'Player Choice: Machete';
 
   playerSelection = "Machete";
   computerSelection = computerPlay();
+
+  computerChoice.textContent = `Computer Choice: ${computerSelection}`;
+
+  playerImage.src = '/images/Machete.png';
+  computerImage.src = `/images/${computerSelection}.png`;
+
   game();
+  score();
+
+  if (playerScore == 5 || computerScore == 5) {
+    machete.addEventListener('click', reset());
+  }
 
 });
 
@@ -128,20 +141,24 @@ function score() {
 
   if (playerScore == 5) {
     winner.textContent = 'You win! You beat the computer!';
+    playerScore = 0;
+    computerScore = 0;
   } else if (computerScore == 5) {
     winner.textContent = 'You lose. The computer won :(';
+    playerScore = 0;
+    computerScore = 0;
   }
 }
 
+// Function to reset the game
+/*
 function reset() {
-  playerScore = 0;
-  computerScore = 0;
 
-  score();
+    playerChoice.textContent = 'Player Choice: ';
+    computerChoice.textContent = 'Computer Choice: ';
+    winner.textContent = '...';
 
-  playerChoice.textContent = 'Player Choice: ';
-  computerChoice.textContent = 'Computer Choice: ';
-  winner.textContent = '...';
-
-  computerImage.src = `./images/Boulder.png`;
-}
+    playerImage.src = '/images/Boulder.png'
+    computerImage.src = '/images/Boulder.png';
+};
+*/

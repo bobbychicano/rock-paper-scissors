@@ -25,9 +25,14 @@ body {
 
 header {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   margin-top: 10px;
   text-shadow: 0 0 3px #83f52c;
+}
+
+h1 {
+  font-family: 'Piedra', cursive;
+  font-size: 3.2rem;
 }
 
 h3 {
@@ -91,18 +96,17 @@ h3 {
   flex-wrap: nowrap;
 }
 
-/*
-.round img {
-  height: 100%;
-}
-*/
-
 .player-image,
 .computer-image,
 .vs {
   text-align: center;
   width: 30%;
-  flex-shrink: 0;
+}
+
+.vs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 img {
