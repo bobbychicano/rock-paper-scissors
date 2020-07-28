@@ -27,8 +27,8 @@ boulder.addEventListener('click', () => {
 
   computerChoice.textContent = `Computer Choice: ${computerSelection}`;
 
-  playerImage.src = '/images/Boulder.png';
-  computerImage.src = `/images/${computerSelection}.png`;
+  playerImage.src = './images/Boulder.png';
+  computerImage.src = `./images/${computerSelection}.png`;
 
   game();
   score();
@@ -44,8 +44,8 @@ tarp.addEventListener('click', () => {
 
   computerChoice.textContent = `Computer Choice: ${computerSelection}`;
 
-  playerImage.src = '/images/Tarp.png';
-  computerImage.src = `/images/${computerSelection}.png`;
+  playerImage.src = './images/Tarp.png';
+  computerImage.src = `./images/${computerSelection}.png`;
 
   game();
   score();
@@ -65,8 +65,8 @@ machete.addEventListener('click', () => {
 
   computerChoice.textContent = `Computer Choice: ${computerSelection}`;
 
-  playerImage.src = '/images/Machete.png';
-  computerImage.src = `/images/${computerSelection}.png`;
+  playerImage.src = './images/Machete.png';
+  computerImage.src = `./images/${computerSelection}.png`;
 
   game();
   score();
