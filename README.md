@@ -1,6 +1,4 @@
-Boulder, Tarp, Machete Web Application
-
----
+## Boulder, Tarp, Machete Web Application
 
 Boulder, Tarp, Machete is a subtle twist on the familiar game of 'Rock, Paper, Scissors'. The aim was to keep the essence of the game alive but add a little fun by using different objects for the available choices.
 
